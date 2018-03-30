@@ -69,7 +69,7 @@ router.get('/login', (req, res) => {
 })
 
 // Login Process
-router.post('/login', (req, res, next) =>{
+router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/users/login',
@@ -78,7 +78,7 @@ router.post('/login', (req, res, next) =>{
 })
 
 // Logout Process
-router.get('/logout', (req, res) =>{
+router.get('/logout', (req, res) => {
   req.logout()
   req.flash('success', 'You are logged out')
   res.redirect('/users/login')
