@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const multer = require('multer')
-const upload = multer({ dest: 'img'})
+const upload = multer({ dest: 'img/'})
 
 // Article Model
 let Article = require('../models/article')
@@ -15,7 +15,7 @@ router.get('/add', ensureAuthenticated, (req, res) => {
 })
 
 // Add Submit POST Route
-router.post('/add', upload.any(), (req, res) => {
+router.post('/add', upload.single('myimage'), (req, res) => {
   req.checkBody('title', 'Title is required').notEmpty()
   // req.checkBody('author', 'Author is required').notEmpty()
   req.checkBody('body', 'Body is required').notEmpty()
