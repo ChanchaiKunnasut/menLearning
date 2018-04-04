@@ -101,8 +101,10 @@ app.get('/', (req, res) => {
 // Route Files
 let articles = require('./routes/articles')
 let users = require('./routes/users')
+let images = require('./routes/images')
 app.use('/articles', articles)
 app.use('/users', users)
+app.use('/images', images)
 
 // Start Server
 app.listen(3000, () => {
